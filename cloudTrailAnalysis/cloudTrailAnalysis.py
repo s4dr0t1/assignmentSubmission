@@ -31,8 +31,9 @@ def is_this_ip_private(ip: str):
 
 def analyse_ip_reputation(ipAddress: str):
     url = f"https://api.abuseipdb.com/api/v2/check?ipAddress={ipAddress}"
+    api_key = "5a4f2f6d2be84821e09ddf1c2885e6f6060c4bc33b2406f3f388c58ea45944e33c8d2458fc54ee90"
     headers = {
-        "Key": "5a4f2f6d2be84821e09ddf1c2885e6f6060c4bc33b2406f3f388c58ea45944e33c8d2458fc54ee90",
+        "Key": api_key,
         "Accept": "application/json",
     }
     try:
@@ -152,13 +153,12 @@ def parse_cloudtrail_log(parsed: dict):
 
     # IP reputation analysis
     # Top 1 IP is only being sent for reputation analysis else my API limit will get exhausted
-    """
-    topIPAddressesTuple = ips_count.most_common(1)
+    howManyAddressesToCount = 1
+    topIPAddressesTuple = ips_count.most_common(howManyAddressesToCount)
     topIPaddressList = []
     for ip in topIPAddressesTuple:
         topIPaddressList.append(ip[0])
     dump_ip_reputation_json(topIPaddressList)
-    """
 
 
 if __name__ == "__main__":
