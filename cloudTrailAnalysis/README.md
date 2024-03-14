@@ -29,6 +29,7 @@ mkdir logs
 $ python3 cloudTrailAnalysis.py
 ```
 ![](../assets/cloudtrail_output.png)
+![](../assets/reputation_analysis_output.png)
 
 > [!NOTE]
 > Reputation analysis results will be saved in a file called `data.json`
